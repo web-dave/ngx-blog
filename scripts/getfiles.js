@@ -2,7 +2,7 @@ const directory = './src/assets/posts/';
 const fs = require('fs');
 const postsArray = [];
 let processed = 0;
-const routes = [];
+const routes = ['start', 'impressum', 'blog'];
 
 const posts = fs.readdirSync(directory);
 let popstCount = posts.filter(name => name.indexOf('.md') !== -1).length;
@@ -56,9 +56,13 @@ writeJson = postsarr => {
       return console.log(err);
     }
   });
-  fs.writeFile(`./routes.json`, JSON.stringify(routes), function(err) {
-    if (err) {
-      return console.log(err);
+  fs.writeFile(
+    `./routes.json`,
+    `{ "routes": ${JSON.stringify(routes)}}`,
+    function(err) {
+      if (err) {
+        return console.log(err);
+      }
     }
-  });
+  );
 };

@@ -1,1 +1,1 @@
-["blog/my-first-blog-post"]
+{ "routes": ["start", "impressum", "blog", "blog/my-first-blog-post"] }
