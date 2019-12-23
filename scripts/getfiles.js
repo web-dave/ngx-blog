@@ -2,7 +2,6 @@ const directory = './src/assets/posts/';
 const fs = require('fs');
 const postsArray = [];
 let processed = 0;
-const routes = ['start', 'impressum', 'blog'];
 
 const posts = fs.readdirSync(directory);
 let popstCount = posts.filter(name => name.indexOf('.md') !== -1).length;
@@ -25,7 +24,7 @@ posts
     };
     postObj.url = `assets/posts/${post}`;
     postObj.name = post.replace('.md', '');
-    routes.push('blog/' + postObj.name);
+
     postObj.timestamp = fs.statSync(directory + post).mtime.getTime();
     fs.readFile(`${directory}${post}`, 'utf8', function(err, postcontent) {
       processed++;
@@ -56,13 +55,9 @@ writeJson = postsarr => {
       return console.log(err);
     }
   });
-  fs.writeFile(
-    `./routes.json`,
-    `{ "routes": ${JSON.stringify(routes)}}`,
-    function(err) {
-      if (err) {
-        return console.log(err);
-      }
+  fs.writeFile(`./routes.json`, `${arr}`, function(err) {
+    if (err) {
+      return console.log(err);
     }
-  );
+  });
 };
