@@ -3,11 +3,13 @@
   "compilerOptions": {
     "outDir": "../out-tsc/app",
     "baseUrl": "./",
-    "module": "esnext",
     "types": []
   },
   "angularCompilerOptions": {
     "enableIvy": false
   },
-  "exclude": ["test.ts", "**/*.spec.ts"]
+  "files": [
+    "main.ts",
+    "polyfills.ts"
+  ]
 }
