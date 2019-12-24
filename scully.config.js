@@ -3,8 +3,10 @@ exports.config = {
   routes: {
     '/blog/:name': {
       type: 'json',
-      url: './routes.json',
-      property: 'name'
+      name: {
+        url: './routes.json',
+        property: 'name'
+      }
     }
   }
 };

@@ -1,0 +1,6 @@
+[
+  { "route": "/start" },
+  { "route": "/impressum" },
+  { "route": "/blog" },
+  { "route": "/blog/:name" }
+]
